@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "./MenuLink";
 import { menuSlide } from "@/utils/menu-animations";
+import Curve from "./Curve";
 
 const navItems = [
 	{
@@ -35,6 +36,7 @@ export default function Menu() {
 			exit="exit"
 			className="fixed top-0 right-0 h-screen bg-slate-700 text-white "
 		>
+			<Curve />
 			<div className="box-border h-full p-24 flex flex-col justify-between">
 				<div
 					onMouseLeave={() => setSelectedIndicator(pathname)}
