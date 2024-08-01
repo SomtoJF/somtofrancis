@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useState } from "react";
+import Burger from "./Burger";
 
 export default function Navbar() {
 	return (
@@ -26,6 +28,7 @@ export default function Navbar() {
 						Blog
 					</Link>
 				</li>
+				<Burger />
 			</ul>
 		</nav>
 	);
