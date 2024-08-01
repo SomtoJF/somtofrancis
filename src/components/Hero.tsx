@@ -20,14 +20,14 @@ export default function Hero() {
 				<Link
 					href="https://www.linkedin.com/in/somtochukwu-francis-b8a236239"
 					target="_blank"
-					className="h-fit"
+					className="h-fit font-bold"
 				>
 					LinkedIn
 				</Link>
 				<Link
 					href="https://twitter.com/somtofrancis3"
 					target="_blank"
-					className="h-fit"
+					className="h-fit font-bold"
 				>
 					Twitter
 				</Link>

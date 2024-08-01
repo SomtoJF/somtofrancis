@@ -8,13 +8,21 @@ export default function Navbar() {
 			</div>
 			<ul className="flex justify-between list-none gap-5">
 				<li>
-					<Link href="#projects">Projects</Link>
+					<Link href="#projects" className="after:bg-white">
+						Projects
+					</Link>
 				</li>
 				<li>
-					<Link href="#info">Info</Link>
+					<Link href="#info" className="after:bg-white">
+						Info
+					</Link>
 				</li>
 				<li>
-					<Link href="https://rewrite-blog.vercel.app" target="_blank">
+					<Link
+						href="https://rewrite-blog.vercel.app"
+						target="_blank"
+						className="after:bg-white"
+					>
 						Blog
 					</Link>
 				</li>
