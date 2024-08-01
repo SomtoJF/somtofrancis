@@ -7,7 +7,43 @@
 	--background-start-rgb: 214, 219, 220;
 	--background-end-rgb: 255, 255, 255;
 	--color-highlight-start: #b8afaa;
-	--color-highlight-end: #b8afaa;
+}
+
+.hx-13 {
+	position: relative;
+}
+
+.hx__select {
+	position: absolute;
+	width: 0%;
+	height: 100%;
+	left: -1%;
+	top: 10%;
+	background: rgba(109, 215, 230, 0.14);
+}
+
+.hx__select::before,
+.hx__select::after {
+	content: "";
+	position: absolute;
+	top: -0.125em;
+	left: -0.075em;
+	width: 0.155em;
+	height: calc(100% + 0.1275em);
+	background: url(../img/select.svg) no-repeat 0 0;
+	background-size: auto 100%;
+}
+
+.hx__select::after {
+	transform: scaleY(-1);
+	left: auto;
+	right: -0.075em;
+	top: auto;
+	bottom: -0.125em;
+}
+
+.char {
+	display: inline-block;
 }
 
 @layer base {

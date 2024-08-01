@@ -1,8 +1,9 @@
+// components/HighlightEffect.tsx
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { ReactNode, useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,11 +37,11 @@ const HighlightEffect: React.FC<HighlightEffectProps> = ({ children }) => {
 					chars,
 					{
 						willChange: "filter",
-						filter: "drop-shadow(0px 0px 0px #6dd7e6)",
+						filter: "drop-shadow(0px 0px 0px #ffdbf5)",
 					},
 					{
 						stagger: 0.03,
-						filter: "drop-shadow(0px 0px 20px #6dd7e6)",
+						filter: "drop-shadow(0px 0px 20px #ffdbf5)",
 					}
 				)
 				.to(
@@ -57,7 +58,9 @@ const HighlightEffect: React.FC<HighlightEffectProps> = ({ children }) => {
 		const resetChars = () => {
 			gsap.killTweensOf([...chars, selectMarker]);
 			gsap.set(selectMarker, { width: "0%" });
-			gsap.set(chars, { filter: "drop-shadow(0px 0px 0px #6dd7e6)" });
+			gsap.set(chars, {
+				filter: "drop-shadow(0px 0px 0px #ffdbf5)",
+			});
 		};
 
 		ScrollTrigger.create({
@@ -77,21 +80,24 @@ const HighlightEffect: React.FC<HighlightEffectProps> = ({ children }) => {
 	return (
 		<mark
 			ref={elementRef}
-			className="relative inline-block text-highlight-start hx-13"
+			className="relative inline-block text-slate-700 hx-13 bg-inherit"
 		>
-			<span
-				ref={selectMarkerRef}
-				className="hx__select absolute w-0 h-full -left-[1%] top-[10%] bg-[rgba(109,215,230,0.14)] mix-blend-plus-lighter"
-			></span>
+			<span ref={selectMarkerRef} className="hx__select"></span>
 			{React.Children.map(children, (child, index) => (
 				<span
 					key={index}
 					ref={(el) => {
 						charsRef.current[index] = el;
 					}}
-					className="inline-block animate-shine"
+					className="char"
 				>
-					{child}
+					{typeof child === "string"
+						? child.split("").map((char, i) => (
+								<span key={i} className="char">
+									{char}
+								</span>
+						  ))
+						: child}
 				</span>
 			))}
 		</mark>

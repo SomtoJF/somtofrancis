@@ -34,7 +34,7 @@ export default function Menu() {
 			initial="initial"
 			animate="enter"
 			exit="exit"
-			className="fixed top-0 right-0 h-screen bg-slate-700 text-white "
+			className="fixed top-0 right-0 h-screen bg-slate-700 text-white z-40"
 		>
 			<Curve />
 			<div className="box-border h-full p-24 flex flex-col justify-between">
