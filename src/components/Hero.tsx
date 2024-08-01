@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
+import { BsLinkedin, BsTwitterX } from "react-icons/bs";
 
 export default function Hero() {
 	return (
@@ -16,20 +17,20 @@ export default function Hero() {
 			<div className=" row-start-6">
 				Based in <br /> Lagos, Nigeria.
 			</div>
-			<div className="flex gap-2 justify-center row-start-6">
+			<div className="space-x-2 row-start-6">
 				<Link
 					href="https://www.linkedin.com/in/somtochukwu-francis-b8a236239"
 					target="_blank"
-					className="h-fit font-bold"
+					className="h-fit font-bold after:content-none"
 				>
-					LinkedIn
+					<BsLinkedin className="w-7 h-7" />
 				</Link>
 				<Link
 					href="https://twitter.com/somtofrancis3"
 					target="_blank"
-					className="h-fit font-bold"
+					className="h-fit font-bold after:content-none"
 				>
-					Twitter
+					<BsTwitterX className="w-7 h-7" />
 				</Link>
 			</div>
 		</section>

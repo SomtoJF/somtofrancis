@@ -25,7 +25,7 @@ const config: Config = {
 						display: "block",
 						height: "1px",
 						width: "50%",
-						backgroundColor: "black",
+						backgroundColor: "white",
 						position: "absolute",
 						left: "25%",
 						transition: "transform 0.3s",
