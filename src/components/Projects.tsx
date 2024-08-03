@@ -13,9 +13,14 @@ export default function Projects() {
 		index: 0,
 	});
 	return (
-		<section className="pb-32 pt-24 bg-slate-100 text-slate-700 rounded-t-xl px-8 lg:px-32">
-			<h2 className="text-lg">projects</h2>
-			<hr className="bg-slate-700 my-5" />
+		<section className="pb-32 pt-24 bg-slate-100 text-slate-700 rounded-t-xl px-8 lg:px-32 ">
+			<h2 className="text-5xl lg:text-7xl font-extrabold uppercase mb-5">
+				projects
+			</h2>
+			<p className="text-2xl max-w-[600px]">
+				What I have been working on lately. Some were personal experiments,
+				others were professional assignments but all were fun.
+			</p>
 			<motion.div
 				variants={height}
 				initial="initial"
@@ -23,7 +28,7 @@ export default function Projects() {
 				exit="exit"
 				className="overflow-hidden"
 			>
-				<div className="flex gap-12 mb-20 lg:mb-0 lg:justify-between">
+				<div className="flex gap-12 mb-20 lg:mb-0 lg:justify-between flex-row-reverse">
 					<div className="flex flex-col justify-between">
 						<ProjectBody
 							links={projectsData}

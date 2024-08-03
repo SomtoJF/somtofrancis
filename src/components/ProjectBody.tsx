@@ -44,14 +44,14 @@ export default function ProjectBody({
 	};
 
 	return (
-		<div className="flex flex-wrap mt-10 lg:max-w-7xl">
+		<div className="flex flex-wrap mt-10 lg:max-w-7xl flex-row-reverse">
 			{links.map((link, index) => {
 				const { title, href } = link;
 				return (
 					<Link
 						key={`l_${index}`}
 						href={href}
-						className="text-black no-underline uppercase mb-4 lg:mb-6"
+						className="text-slate-700 no-underline uppercase mb-4 lg:mb-6"
 						target="_blank"
 					>
 						<motion.p
@@ -67,7 +67,7 @@ export default function ProjectBody({
 									? "open"
 									: "closed"
 							}
-							className="m-0 flex flex-wrap overflow-hidden text-3xl lg:text-[4vw] pr-8 lg:pr-[2vw] pt-3 font-light leading-tight"
+							className="m-0 flex flex-wrap overflow-hidden text-3xl lg:text-[3vw] pr-8 lg:pr-[2vw] pt-3 font-bold leading-tight"
 						>
 							{getChars(title)}
 						</motion.p>

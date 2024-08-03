@@ -2,6 +2,8 @@ import rebaseMockup from "../img/rebase.png";
 import threeMockup from "../img/three.png";
 import rewriteMockup from "../img/rewrite.png";
 import academiaMockup from "../img/academia.png";
+import bmzMockup from "../img/bmz.png";
+import goshMockup from "../img/gosh.png";
 
 export const projectsData = [
 	{
@@ -47,7 +49,7 @@ export const projectsData = [
 		title: "Buy-me-zobo",
 		description: "A platform for creators to get support from their fans.",
 		href: "https://buymezobo.vercel.app",
-		image: "",
+		image: bmzMockup,
 		technologies: [
 			"Typescript",
 			"Next.js",
@@ -71,7 +73,7 @@ export const projectsData = [
 		title: "Gosh",
 		description: "A Lightweight golang shell.",
 		href: "https://github.com/SomtoJF/Gosh",
-		image: "",
+		image: goshMockup,
 		technologies: ["Golang", "Gorm", "SQLite"],
 	},
 	{
