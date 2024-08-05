@@ -46,6 +46,18 @@
 	display: inline-block;
 }
 
+.project-link > svg {
+	transition: 250ms;
+	transform: rotate(-45deg);
+	&:after {
+		content: none;
+	}
+}
+
+.project-link:hover > svg {
+	transform: rotate(0deg);
+}
+
 @layer base {
 	nav a,
 	a {
