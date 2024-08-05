@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function ProjectV2() {
 	const containerRef = useRef<HTMLUListElement>(null);
+	const listItemsRef = useRef<(HTMLLIElement | null)[]>([]);
 
 	useEffect(() => {
 		const container = containerRef.current;
@@ -20,8 +21,9 @@ export default function ProjectV2() {
 			const totalWidth = container.scrollWidth;
 			const containerWidth = container.offsetWidth;
 
+			// Horizontal scroll animation
 			gsap.to(container, {
-				x: () => ` -${totalWidth - containerWidth}px`,
+				x: () => `-${totalWidth - containerWidth}px`,
 				ease: "none",
 				scrollTrigger: {
 					trigger: container,
@@ -33,12 +35,32 @@ export default function ProjectV2() {
 					invalidateOnRefresh: true,
 				},
 			});
+
+			// List item expansion animation
+			listItemsRef.current.forEach((item, index) => {
+				if (item) {
+					gsap.to(item, {
+						width: "100vw",
+						marginRight: 0,
+						borderRadius: 0,
+						left: 0,
+						ease: "power2.inOut",
+						scrollTrigger: {
+							trigger: container,
+							start: () => `top 50%`,
+							end: () => `top top`,
+							scrub: true,
+							invalidateOnRefresh: true,
+						},
+					});
+				}
+			});
 		}
 	}, []);
 
 	return (
-		<section className="bg-black text-white">
-			<div className="py-40 px-8 lg:px-32">
+		<section className=" bg-slate-100 text-slate-700">
+			<div className="pb-40 px-8 lg:px-32">
 				<h2 className="text-5xl lg:text-7xl font-extrabold uppercase mb-5">
 					Projects
 				</h2>
@@ -48,9 +70,12 @@ export default function ProjectV2() {
 				</p>
 			</div>
 			<ul ref={containerRef} className="flex">
-				{projectsData.map((project) => (
+				{projectsData.map((project, index) => (
 					<li
-						className="w-screen h-screen flex-shrink-0 flex flex-col justify-end px-8 lg:px-32 py-20 relative overflow-hidden"
+						ref={(el) => {
+							listItemsRef.current[index] = el;
+						}}
+						className="w-[80%] mr-8 lg:mr-32 left-8 lg:left-32 rounded-3xl h-screen flex-shrink-0 flex flex-col justify-end px-8 lg:px-32 py-20 relative overflow-hidden"
 						key={uuidv4()}
 					>
 						<div className="absolute inset-0 z-0">
@@ -60,7 +85,7 @@ export default function ProjectV2() {
 									alt={project.title}
 									layout="fill"
 									objectFit="cover"
-									className="opacity-70"
+									className="opacity-90"
 								/>
 							)}
 
@@ -76,7 +101,7 @@ export default function ProjectV2() {
 									{project.github && (
 										<Link
 											href={project.github}
-											className="rounded-full bg-none border-white border-2 px-8 py-2 flex gap-2 items-center hover:bg-opacity-80 transition-colors text-white project-link after:content-none"
+											className="rounded-full bg-none border-white border-[1px] px-8 py-2 flex gap-2 items-center hover:bg-opacity-80 transition-colors text-white project-link after:content-none"
 										>
 											GitHub <FaArrowRight />
 										</Link>
@@ -84,7 +109,7 @@ export default function ProjectV2() {
 									{project.href && (
 										<Link
 											href={project.href}
-											className="rounded-full bg-none border-white border-2 px-8 py-2 flex gap-2 items-center hover:bg-opacity-80 transition-colors text-white project-link after:content-none"
+											className="rounded-full bg-none border-white border-[1px] px-8 py-2 flex gap-2 items-center hover:bg-opacity-80 transition-colors text-white project-link after:content-none"
 										>
 											Live <FaArrowRight />
 										</Link>
