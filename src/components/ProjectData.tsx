@@ -25,7 +25,7 @@ export default function ProjectData({ data, selectedLink }: IndexProps) {
 			animate={selectedLink.isActive ? "open" : "closed"}
 			className="hidden lg:block w-[500px] h-[350px] relative space-y-2 mt-16"
 		>
-			{data.image === "" ? (
+			{!data.image ? (
 				<p className="font-bold uppercase text-sm flex gap-2 justify-center items-center text-white bg-slate-700 h-[180px]">
 					<IoWarningOutline />
 					No image available

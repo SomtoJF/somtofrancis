@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface Link {
 	title: string;
-	href: string;
+	href?: string;
 }
 
 interface SelectedLink {
@@ -50,7 +50,7 @@ export default function ProjectBody({
 				return (
 					<Link
 						key={`l_${index}`}
-						href={href}
+						href={href ?? "/"}
 						className="text-slate-700 no-underline uppercase mb-4 lg:mb-6"
 						target="_blank"
 					>
