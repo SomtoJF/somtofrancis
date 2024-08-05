@@ -72,7 +72,7 @@ export const projectsData = [
 	{
 		title: "Gosh",
 		description: "A Lightweight golang shell.",
-		href: "https://github.com/SomtoJF/Gosh",
+		github: "https://github.com/SomtoJF/Gosh",
 		image: goshMockup,
 		technologies: ["Golang", "Gorm", "SQLite"],
 	},
@@ -88,8 +88,8 @@ export const projectsData = [
 	{
 		title: "Jobit",
 		description: "A Mobile Application for searching for developer jobs. ",
-		href: "https://github.com/SomtoJF/JobIt",
-		image: "",
+		github: "https://github.com/SomtoJF/JobIt",
+		image: null,
 		technologies: ["React Native", "JavaScript", "Expo Router", "Expo Go"],
 	},
 ];
