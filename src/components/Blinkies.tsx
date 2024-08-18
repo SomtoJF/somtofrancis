@@ -64,13 +64,12 @@ export default function Blinkies() {
 		<div className="w-full flex lg:h-8 gap-0.5 flex-wrap items-center">
 			<TooltipProvider>
 				{blinkies.map((blinky) => (
-					<Tooltip>
+					<Tooltip key={blinky.src}>
 						<TooltipTrigger asChild>
 							<img
 								src={blinky.src}
 								alt="blinky"
 								className="h-auto w-auto max-h-8"
-								key={blinky.src}
 							/>
 						</TooltipTrigger>
 						<TooltipContent className="text-xs">
