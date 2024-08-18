@@ -62,6 +62,9 @@ const config = {
 				base: "500",
 				heading: "700",
 			},
+			transitionDuration: {
+				"250": "250ms",
+			},
 		},
 		container: {
 			center: true,
