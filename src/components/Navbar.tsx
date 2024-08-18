@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Burger from "./Burger";
-import ThemeSwitcher from "./ThemeSwitcher";
+// import ThemeSwitcher from "./ThemeSwitcher";
 
 const links = [
 	{ name: "Projects", href: "#projects" },
@@ -13,7 +13,7 @@ const links = [
 export default function Navbar() {
 	return (
 		<>
-			<nav className="flex justify-between items-center text-slate-700  font-light z-10 h-[10vh] box-border px-8 lg:px-32 w-full max-w-screen-2xl bg-transparent border-b-2 border-slate-700">
+			<nav className="flex justify-between items-center text-slate-700  font-light z-10 h-[10vh] box-border px-8 lg:px-32 w-full max-w-screen-2xl bg-transparent border-b-[1px] border-slate-700">
 				<div>
 					<Link href={"/"}>&copy; somtochukwu</Link>
 				</div>
@@ -27,7 +27,7 @@ export default function Navbar() {
 							</li>
 						);
 					})}
-					<ThemeSwitcher />
+					{/* <ThemeSwitcher /> */}
 				</ul>
 			</nav>
 			<Burger />
