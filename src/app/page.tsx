@@ -1,7 +1,8 @@
-import Experience from "@/components/Experience";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
-import Projects from "@/components/Projects";
+// import Experience from "@/components/Experience";
+// import Projects from "@/components/Projects";
+// import ProjectsV2 from "@/components/ProjectsV2";
 import AnimatedCursor from "react-animated-cursor";
 
 export default function Home() {
@@ -18,14 +19,15 @@ export default function Home() {
 					background: "white",
 					mixBlendMode: "exclusion",
 				}}
-				trailingSpeed={1}
+				trailingSpeed={8}
 				showSystemCursor={true}
 			/>
 
 			<Navbar />
 			<Hero />
-			<Experience />
-			<Projects />
+			{/* <ProjectsV2 /> */}
+			{/* <Experience /> */}
+			{/* <Projects /> */}
 		</main>
 	);
 }
