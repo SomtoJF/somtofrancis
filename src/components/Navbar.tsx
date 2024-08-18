@@ -14,7 +14,7 @@ const links = [
 export default function Navbar() {
 	return (
 		<>
-			<nav className="flex justify-between items-center text-slate-700  font-light z-10 h-[10vh] box-border px-8 lg:px-32 w-full max-w-screen-2xl bg-transparent border-b-[1px] border-slate-700">
+			<nav className="flex justify-between items-center text-slate-700  font-light z-10 h-16 2xl:h-20 box-border px-8 lg:px-32 w-full max-w-screen-2xl bg-transparent border-b-[1px] border-slate-700">
 				<div>
 					<Link href={"/"}>&copy; somtochukwu</Link>
 				</div>
