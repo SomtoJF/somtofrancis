@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "./MenuLink";
 import { menuSlide } from "@/utils/menu-animations";
 import Curve from "./Curve";
+import NextLink from "next/link";
 
 const navItems = [
 	{
@@ -37,7 +38,7 @@ export default function Menu() {
 			className="fixed top-0 right-0 h-screen bg-slate-700 text-white z-40"
 		>
 			<Curve />
-			<div className="box-border h-full p-24 flex flex-col justify-between">
+			<div className="box-border h-full p-24 pb-12 flex flex-col justify-between">
 				<div
 					onMouseLeave={() => setSelectedIndicator(pathname)}
 					className="flex flex-col text-4xl gap-3 mt-20"
@@ -77,6 +78,14 @@ export default function Menu() {
 					>
 						LinkedIn
 					</a>
+				</div>
+				<div>
+					<NextLink
+						href={"/"}
+						className="hover:after:content-none font-light text-sm text-slate-400"
+					>
+						&copy; somtochukwu
+					</NextLink>
 				</div>
 			</div>
 		</motion.div>
