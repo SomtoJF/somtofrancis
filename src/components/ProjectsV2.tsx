@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projectsData } from "@/data";
@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 import { FaArrowRight } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,29 +16,28 @@ export default function ProjectV2() {
 	const containerRef = useRef<HTMLUListElement>(null);
 	const listItemsRef = useRef<(HTMLLIElement | null)[]>([]);
 
-	useEffect(() => {
+	useGSAP(() => {
 		const container = containerRef.current;
 		if (typeof window !== "undefined" && window.innerWidth > 650 && container) {
-			const totalWidth = container.scrollWidth;
-			const containerWidth = container.offsetWidth;
-
 			// Horizontal scroll animation
 			gsap.to(container, {
-				x: () => `-${totalWidth - containerWidth}px`,
+				x: () => `-${window.innerWidth * (listItemsRef.current.length - 2)}px`,
 				ease: "none",
 				scrollTrigger: {
 					trigger: container,
 					start: "top top",
-					end: () => `+=${totalWidth - containerWidth}`,
-					scrub: true,
+					end: () =>
+						`+=${window.innerWidth * (listItemsRef.current.length - 2)}`,
+					scrub: 1,
 					pin: true,
 					anticipatePin: 1,
 					invalidateOnRefresh: true,
+					pinSpacing: true,
 				},
 			});
 
 			// List item expansion animation
-			listItemsRef.current.forEach((item, index) => {
+			listItemsRef.current.forEach((item, _) => {
 				if (item) {
 					gsap.to(item, {
 						width: "100vw",
@@ -46,9 +46,10 @@ export default function ProjectV2() {
 						left: 0,
 						ease: "power2.inOut",
 						scrollTrigger: {
-							trigger: container,
-							start: () => `top 50%`,
-							end: () => `top top`,
+							trigger: item,
+							containerAnimation: gsap.getById("containerAnim"),
+							start: "left center",
+							end: "right center",
 							scrub: true,
 							invalidateOnRefresh: true,
 						},
@@ -59,8 +60,8 @@ export default function ProjectV2() {
 	}, []);
 
 	return (
-		<section className=" bg-slate-100 text-slate-700">
-			<div className="pb-40 px-8 lg:px-32">
+		<section className=" bg-slate-100 text-slate-700 flex flex-col">
+			<div className="pb-40 px-8 lg:px-32 self-end">
 				<h2 className="text-5xl lg:text-7xl font-extrabold uppercase mb-5">
 					Projects
 				</h2>
@@ -69,13 +70,13 @@ export default function ProjectV2() {
 					others were professional assignments but all were fun.
 				</p>
 			</div>
-			<ul ref={containerRef} className="flex">
+			<ul ref={containerRef} className="flex h-screen">
 				{projectsData.map((project, index) => (
 					<li
 						ref={(el) => {
 							listItemsRef.current[index] = el;
 						}}
-						className="w-[80%] mr-8 lg:mr-32 left-8 lg:left-32 rounded-3xl h-screen flex-shrink-0 flex flex-col justify-end px-8 lg:px-32 py-20 relative overflow-hidden"
+						className="w-[90%] mr-8 lg:mr-32 left-8 lg:left-32 rounded-3xl h-screen flex-shrink-0 flex flex-col justify-end px-8 lg:px-32 py-20 relative overflow-hidden"
 						key={uuidv4()}
 					>
 						<div className="absolute inset-0 z-0">
@@ -100,6 +101,7 @@ export default function ProjectV2() {
 								<div className="flex gap-5 flex-wrap">
 									{project.github && (
 										<Link
+											target="_blankz"
 											href={project.github}
 											className="rounded-full bg-none border-white border-[1px] px-8 py-2 flex gap-2 items-center hover:bg-opacity-80 transition-colors text-white project-link after:content-none"
 										>
@@ -108,6 +110,7 @@ export default function ProjectV2() {
 									)}
 									{project.href && (
 										<Link
+											target="_blankz"
 											href={project.href}
 											className="rounded-full bg-none border-white border-[1px] px-8 py-2 flex gap-2 items-center hover:bg-opacity-80 transition-colors text-white project-link after:content-none"
 										>
