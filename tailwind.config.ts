@@ -1,54 +1,77 @@
 import type { Config } from "tailwindcss";
-import plugin from "tailwindcss/plugin";
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
-const config: Config = {
+const config = {
+	darkMode: ["class"],
 	content: [
-		"./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-		"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+		"./pages/**/*.{ts,tsx}",
+		"./components/**/*.{ts,tsx}",
+		"./app/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}",
 	],
+	prefix: "",
 	theme: {
 		extend: {
-			backgroundImage: {
-				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-				"gradient-conic":
-					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+			fontFamily: {
+				sans: ["var(--font-sans)", ...fontFamily.sans],
+			},
+			keyframes: {
+				"accordion-down": {
+					from: { height: "0" },
+					to: { height: "var(--radix-accordion-content-height)" },
+				},
+				"accordion-up": {
+					from: { height: "var(--radix-accordion-content-height)" },
+					to: { height: "0" },
+				},
+			},
+			animation: {
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+			},
+			colors: {
+				main: "#88aaee",
+				mainAccent: "#4d80e6", // not needed for shadcn components
+				overlay: "rgba(0,0,0,0.8)", // background color overlay for alert dialogs, modals, etc.
+
+				// light mode
+				bg: "#dfe5f2",
+				text: "#000",
+				border: "#000",
+
+				// dark mode
+				darkBg: "#272933",
+				darkText: "#eeefe9",
+				darkBorder: "#000",
+				secondaryBlack: "#1b1b1b", // opposite of plain white, not used pitch black because borders and box-shadows are that color
+			},
+			borderRadius: {
+				base: "0px",
+			},
+			boxShadow: {
+				light: "3px 3px 0px 0px #000",
+				dark: "3px 3px 0px 0px #000",
+			},
+			translate: {
+				boxShadowX: "3px",
+				boxShadowY: "3px",
+				reverseBoxShadowX: "-3px",
+				reverseBoxShadowY: "-3px",
+			},
+			fontWeight: {
+				base: "500",
+				heading: "700",
+			},
+		},
+		container: {
+			center: true,
+			padding: "2rem",
+			screens: {
+				"2xl": "1400px",
 			},
 		},
 	},
-	plugins: [
-		plugin(function ({ addUtilities }) {
-			const newUtilities = {
-				".burger": {
-					"&::before, &::after": {
-						content: '""',
-						display: "block",
-						height: "1px",
-						width: "50%",
-						backgroundColor: "white",
-						position: "absolute",
-						left: "25%",
-						transition: "transform 0.3s",
-					},
-					"&::before": {
-						top: "calc(50% - 5px)",
-					},
-					"&::after": {
-						bottom: "calc(50% - 5px)",
-					},
-				},
-				".burger-active": {
-					"&::before": {
-						transform: "translateY(5px) rotate(45deg)",
-					},
-					"&::after": {
-						transform: "translateY(-5px) rotate(-45deg)",
-					},
-				},
-			};
-			addUtilities(newUtilities);
-		}),
-	],
-};
+	plugins: [require("tailwindcss-animate")],
+} satisfies Config;
 
 export default config;
