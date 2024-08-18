@@ -21,14 +21,14 @@ export default function Hero() {
 		<section className="w-full min-h-[90vh] lg:flex justify-between p-8 px-8 lg:px-32">
 			<div className="w-1/2 flex flex-col gap-32 pb-20">
 				<p className="text-5xl xl:text-6xl font-semibold max-w-2xl text-slate-700 w-full h-fit overflow-visible">
-					"on a mission to build simple solutions to{" "}
+					&quot;on a mission to build simple solutions to{" "}
 					<HighlightEffect>complex</HighlightEffect> {""}
-					real-world problems"
+					real-world problems&quot;
 				</p>
 				<div className="w-3/4 border-slate-700 border-[1px] grid grid-cols-2 grid-rows-2 text-sm">
 					<p className="col-span-2 w-full border-b-[1px] border-slate-700 p-4">
-						We're not just suppliers - we're your partner in enhancing your
-						green initiatives with renewable, compostable, and affordable
+						We&apos;re not just suppliers - we&apos;re your partner in enhancing
+						your green initiatives with renewable, compostable, and affordable
 						products.
 					</p>
 					<div className="p-4 col-span-1 w-full h-full flex justify-center items-center">
