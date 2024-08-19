@@ -15,7 +15,7 @@ import Blinkies from "./Blinkies";
 
 export default function About() {
 	return (
-		<article className="flex flex-col gap-2">
+		<article className="flex flex-col gap-2 text-xs lg:text-base">
 			<p className="text-justify">
 				Hi! My name is <b>Somtochukwu Francis</b>, but you can call me Somto
 				<IoRemoveOutline className="inline" />
