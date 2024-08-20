@@ -1,6 +1,5 @@
 import React from "react";
 import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
-import { IoRemoveOutline } from "react-icons/io5";
 import { AiTwotoneMail } from "react-icons/ai";
 import {
 	DropdownMenu,
@@ -12,24 +11,27 @@ import {
 } from "./ui/dropdown-menu";
 import Link from "next/link";
 import Blinkies from "./Blinkies";
+import HighlightEffect from "./HighlightEffect";
 
 export default function About() {
 	return (
 		<article className="flex flex-col gap-2 text-sm lg:text-base">
 			<p className="text-justify">
-				Hi! My name is <b>Somtochukwu Francis</b>, but you can call me Somto
-				<IoRemoveOutline className="inline" />
-				or Francis doesn&apos;t matter really. I&apos;m a Software Engineer at
-				Sefara{" "}
+				Hi! My name is <HighlightEffect>Somtochukwu Francis</HighlightEffect>.
+				I&apos;m a Software Engineer at{" "}
 				<Link href={"https://sefara.com"} target="_blank">
-					<sup className="font-bold">here</sup>
+					<b>Sefara</b>
+					<sup className="font-bold">[1]</sup>
 				</Link>
-				, where I get to play with all sorts of <b>web-based</b> technologies
-				and when I get lucky, I build <b>AI features</b> for our products.
-				I&apos;ve always been drawn to the complex and challenging—it&apos;s
-				like a puzzle I can&apos;t wait to solve. My curiosity has led me down
-				some pretty interesting paths, from dabbling in <b>game development</b>{" "}
-				and AI to tinkering with Embedded Systems just for the thrill of it.
+				, where I get to play with all sorts of{" "}
+				<HighlightEffect>web-based</HighlightEffect> technologies and when I get
+				lucky, I build <HighlightEffect>AI features</HighlightEffect> for our
+				products. I&apos;ve always been drawn to the complex and
+				challenging—it&apos;s like a puzzle I can&apos;t wait to solve. My
+				curiosity has led me down some pretty interesting paths, from dabbling
+				in <HighlightEffect>game development</HighlightEffect> and AI to
+				tinkering with <HighlightEffect>Distributed Systems</HighlightEffect>{" "}
+				just for the thrill of it.
 			</p>
 
 			<div className="text-justify">
@@ -40,12 +42,13 @@ export default function About() {
 						better.
 					</li>
 					<li>
-						working on a platform that empowers creators—and anyone, really to
-						sustain their projects by receiving direct support from their
-						audience.{" "}
+						working on a{" "}
 						<Link href={"https://buymezobo.ng"} target="_blank">
-							<sup className="font-bold">here</sup>
-						</Link>
+							<b>platform</b>
+							<sup className="font-bold">[2]</sup>
+						</Link>{" "}
+						that empowers creators—and anyone, really to sustain their projects
+						by receiving direct support from their audience.{" "}
 					</li>
 					<li>
 						exploring art-I love art. Especially surrealism and retro-futurism
@@ -63,6 +66,7 @@ export default function About() {
 				<DropdownMenu>
 					<DropdownMenuTrigger>
 						<b className="after:bg-slate-700">hit me up</b>
+						<sup className="font-bold">[4]</sup>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent className="bg-slate-700 text-slate-100">
 						<DropdownMenuLabel>My Contacts</DropdownMenuLabel>

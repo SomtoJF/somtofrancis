@@ -92,9 +92,9 @@ const HighlightEffect: React.FC<HighlightEffectProps> = ({ children }) => {
 					className="char"
 				>
 					{typeof child === "string"
-						? child.split("").map((char, i) => (
+						? child.split(/(\s+)/).map((char, i) => (
 								<span key={i} className="char">
-									{char}
+									{char === " " ? "\u00A0" : char}
 								</span>
 						  ))
 						: child}

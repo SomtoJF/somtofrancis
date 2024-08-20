@@ -34,7 +34,7 @@ export default function Navbar() {
 					{/* <ThemeSwitcher /> */}
 				</ul>
 			</nav>
-			<Burger />
+			{/* <Burger /> */}
 		</>
 	);
 }
